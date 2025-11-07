@@ -1,264 +1,166 @@
-# Análisis de Datos de AluraStore Latam
+# 📊 AluraStore Latam - Análisis Comparativo de Tiendas
 
 ## 📋 Descripción del Proyecto
 
-Este proyecto realiza un **análisis exploratorio comprehensivo** de datos de ventas de la red de tiendas **AluraStore** en América Latina. El análisis integra datos de **4 sucursales** diferentes, consolidando información sobre productos, vendedores, transacciones y ubicaciones geográficas para identificar patrones de compra, comportamiento de clientes y oportunidades de negocio.
+Este proyecto presenta un **análisis exhaustivo de datos** de cuatro tiendas pertenecientes a AluraStore Latam, con el objetivo de proporcionar una recomendación estratégica sobre cuál tienda es más conveniente vender. El análisis considera múltiples factores operacionales, financieros y de satisfacción del cliente.
 
-## 🎯 Objetivo
+## 🎯 Objetivo Principal
 
-Extraer insights valiosos del comportamiento de compra de los clientes en diferentes ubicaciones geográficas de América Latina, analizando:
-- Distribución de ventas por categoría de producto
-- Desempeño de vendedores
-- Patrones de pago y financiamiento
-- Satisfacción de clientes (calificaciones)
-- Análisis geográfico de compras
+Determinar cuál de las cuatro tiendas del Sr. Juan presenta el menor potencial estratégico y es recomendable vender, considerando:
+- Ingresos totales generados
+- Desempeño por categorías de productos
+- Satisfacción del cliente (calificaciones promedio)
+- Análisis de eficiencia de ventas por categoría
+- Costos operativos de envío
 
-## 📊 Fuentes de Datos
-
-El proyecto utiliza **4 conjuntos de datos en formato CSV** alojados en un repositorio de GitHub de Alura:
-
-- `tienda_1.csv` - Datos de la Tienda 1
-- `tienda_2.csv` - Datos de la Tienda 2
-- `tienda_3.csv` - Datos de la Tienda 3
-- `tienda_4.csv` - Datos de la Tienda 4
-
-Las URLs se cargan directamente desde el repositorio oficial de desafíos de Data Science.
-
-## 🗂️ Estructura de los Datos
-
-Cada conjunto de datos contiene las siguientes **12 columnas**:
-
-| Columna | Tipo | Descripción |
-|---------|------|-------------|
-| **Producto** | String | Nombre del artículo vendido |
-| **Categoría del Producto** | String | Clasificación del producto (Electrónicos, Muebles, Juguetes, etc.) |
-| **Precio** | Float | Valor del producto en moneda local |
-| **Costo de envío** | Float | Costo de envío del pedido |
-| **Fecha de Compra** | String | Fecha en formato DD/MM/YYYY |
-| **Vendedor** | String | Nombre del vendedor responsable |
-| **Lugar de Compra** | String | Ciudad donde se realizó la compra |
-| **Calificación** | Integer | Puntuación dada por el cliente (1-5) |
-| **Método de pago** | String | Forma de pago utilizada (Tarjeta de crédito, Nequi, etc.) |
-| **Cantidad de cuotas** | Integer | Número de cuotas si fue a plazos |
-| **lat** | Float | Latitud de la ubicación geográfica |
-| **lon** | Float | Longitud de la ubicación geográfica |
-
-## 🚀 Requisitos y Dependencias
-
-### Requisitos del Sistema
-- **Python 3.7 o superior**
-- **Jupyter Notebook** o **Google Colab**
-- Conexión a Internet (para descargar los datos desde GitHub)
-
-### Librerías de Python Necesarias
+## 📁 Estructura del Proyecto
 
 ```
-pandas>=1.3.0
-numpy>=1.21.0
-matplotlib>=3.4.0
-seaborn>=0.11.0
+├── AluraStoreLatam-8.ipynb       # Notebook principal con análisis completo
+├── README.md                      # Este archivo
+└── datos/                         # Fuente de datos (URLs de GitHub)
+    ├── tienda_1.csv
+    ├── tienda_2.csv
+    ├── tienda_3.csv
+    └── tienda_4.csv
 ```
 
-### Instalación de Dependencias
+## 🔍 Análisis Realizado
 
-Para instalar todas las dependencias necesarias, ejecuta:
+### 1. **Análisis de Ingresos Totales**
+- **Tienda 1**: $1,150,880,400 (Mayor facturación)
+- **Tienda 2**: $1,116,343,500
+- **Tienda 3**: $1,098,019,600
+- **Tienda 4**: $1,038,375,700 (Menor facturación - 10.8% menos que Tienda 1)
 
-```bash
-pip install pandas numpy matplotlib seaborn
-```
+### 2. **Desempeño por Categorías de Productos**
+Las cuatro tiendas operan con un patrón de categorías consistente:
+- **Top 3 categorías** (por facturación): Electrónicos, Electrodomésticos, Muebles
+- **Bottom 3 categorías** (por facturación): Libros, Artículos para el hogar, Deportes y diversión
 
-O si utilizas Google Colab (ya incluye estas librerías):
+### 3. **Calificaciones Promedio de Clientes**
+- **Tienda 3**: 4.048 (Mejor satisfacción)
+- **Tienda 2**: 4.037
+- **Tienda 4**: 3.996
+- **Tienda 1**: 3.977 (Menor satisfacción)
 
-```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-```
+### 4. **Análisis de Eficiencia de Ventas**
+Se identificaron patrones estratégicos diferenciados:
+- **Tienda 1**: Estrategia de precios premium (12.4% más alto en Instrumentos Musicales)
+- **Tienda 4**: Estrategia de competencia por precio (vende más unidades a precios más bajos)
+- **Tienda 3**: Balance óptimo (vende más a precios competitivos)
+- **Tienda 2**: Precios premium en Electrónicos
 
-## 📝 Cómo Ejecutar el Proyecto
+### 5. **Costo Promedio de Envío**
+- **Tienda 4**: $23,459.46 (Más bajo)
+- **Tienda 3**: $24,805.68
+- **Tienda 2**: $25,216.24
+- **Tienda 1**: $26,018.61 (Más alto)
 
-### Opción 1: En Google Colab (Recomendado)
+**Nota**: Los costos de envío son cubiertos por los clientes y no representan un costo directo para la tienda.
 
-1. Abre el archivo `AluraStoreLatam-6.ipynb` en Google Colab
-2. Ejecuta las celdas en orden secuencial
-3. Los datos se cargarán automáticamente desde GitHub
+## 💡 Hallazgos Clave
 
-### Opción 2: En Jupyter Notebook Local
+### Patrón Anómalo de Tienda 4
+La Tienda 4 sigue una estrategia de **competencia por volumen con márgenes bajos**:
+- ✓ Vende más unidades en varias categorías
+- ✗ Genera menores ingresos totales porque sus precios promedio son más bajos
+- ✗ No percibe ventaja competitiva en satisfacción del cliente
+- ✗ Menor margen de utilidad potencial
 
-1. Clona o descarga este repositorio
-2. Abre una terminal en la carpeta del proyecto
-3. Inicia Jupyter Notebook:
-   ```bash
-   jupyter notebook
-   ```
-4. Abre el archivo `AluraStoreLatam-6.ipynb`
-5. Ejecuta las celdas en orden
+### Estrategias Exitosas
+- **Tienda 1**: Precios premium generan mayores ingresos a pesar de menor volumen
+- **Tienda 3**: Balance perfecto entre cantidad y precio = Mayor satisfacción del cliente
 
-### Paso a Paso de Ejecución
+## 🎯 Recomendación Final
 
-1. **Importación de Datos**: La primera celda carga los 4 archivos CSV desde GitHub
-   ```python
-   import pandas as pd
-   
-   url = "https://raw.githubusercontent.com/alura-es-cursos/..."
-   tienda = pd.read_csv(url)
-   ```
+### **Se recomienda vender la Tienda 4**
 
-2. **Exploración Inicial**: Se realiza un análisis exploratorio de cada tienda
-   ```python
-   tienda.head()
-   tienda.info()
-   tienda.describe()
-   ```
+#### Justificación:
 
-3. **Limpieza y Transformación**: Se procesan y preparan los datos
-4. **Análisis y Visualización**: Se generan gráficos e insights
-5. **Consolidación**: Se unifican los datos de todas las tiendas
+1. **Menores ingresos totales**: $112 millones menos que Tienda 1 (10.8% de diferencia)
 
-## 📈 Secciones del Análisis
+2. **Estrategia inefectiva**: Compite por precio pero no obtiene ventaja en satisfacción del cliente (calificación: 3.996)
 
-### 1. Exploración Inicial de los Datos
-- Visualización de primeras filas de cada tienda
-- Información sobre tipos de datos
-- Estadísticas descriptivas
-- Detección de valores nulos
+3. **Márgenes más ajustados**: Vende más unidades a precios más bajos, limitando ganancias por transacción
 
-### 2. Análisis por Tienda
-- Información detallada de cada sucursal
-- Comparativa entre tiendas
-- Productos más vendidos
-- Rendimiento de vendedores
+4. **Menor potencial de crecimiento**: Las limitaciones estructurales (ubicación, mercado) no se compensan únicamente con eficiencia logística
 
-### 3. Análisis de Categorías
-- Distribución de ventas por categoría
-- Precio promedio por categoría
-- Categorías más populares
-- Análisis de margen (Precio - Costo de envío)
+5. **Optimización del portafolio**: Permite concentrar recursos en las tres tiendas más rentables y eficientes
 
-### 4. Análisis de Vendedores
-- Desempeño individual de vendedores
-- Volumen de ventas
-- Calificación promedio
-- Consistencia en entregas
+#### Por qué NO vender las otras:
 
-### 5. Análisis de Métodos de Pago
-- Métodos más utilizados
-- Preferencias por tienda
-- Análisis de cuotas
-- Relación entre método de pago y satisfacción
+- **Tienda 1**: Máximo desempeño financiero con estrategia de precios premium exitosa
+- **Tienda 2**: Balance sólido entre ingresos y satisfacción del cliente
+- **Tienda 3**: Mejor modelo operativo en términos de satisfacción y balance eficiencia-volumen
 
-### 6. Análisis Geográfico
-- Mapa de compras por ciudad
-- Distribución regional
-- Costos de envío por ubicación
-- Zonas de mayor demanda
+## 📊 Visualizaciones Principales
 
-### 7. Análisis de Satisfacción del Cliente
-- Distribución de calificaciones
-- Relación entre precio y satisfacción
-- Influencia del vendedor en la calificación
-- Productos mejor valorados
-
-## 🔍 Insights Esperados
-
-Al completar este análisis, obtendrás conclusiones sobre:
-
-✅ **Categorías de éxito**: Cuáles son los productos más rentables  
-✅ **Vendedores estrella**: Quiénes generan mayor satisfacción  
-✅ **Preferencias geográficas**: Diferencias regionales en comportamiento de compra  
-✅ **Tendencias de pago**: Evolución en métodos de financiamiento  
-✅ **Oportunidades**: Áreas de mejora y crecimiento  
+El notebook incluye múltiples visualizaciones:
+1. **Gráfico de Cantidad vs Facturación**: Comparación normalizada (escala 0-100) que evidencia diferencias de precios
+2. **Tabla Comparativa de Calificaciones**: Desempeño por categoría en cada tienda
+3. **Análisis de Facturación por Categoría**: Identificación de categorías clave
+4. **Métodos de Pago**: Preferencias de clientes por tienda
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Python 3** - Lenguaje de programación
-- **Pandas** - Manipulación y análisis de datos
-- **NumPy** - Computación numérica
-- **Matplotlib** - Visualización de gráficos estáticos
-- **Seaborn** - Visualización estadística avanzada
-- **Jupyter Notebook** - Entorno interactivo de desarrollo
+- **Python 3**: Lenguaje principal
+- **Pandas**: Análisis y manipulación de datos
+- **NumPy**: Operaciones numéricas
+- **Matplotlib**: Visualización de datos
+- **Google Colab**: Entorno de desarrollo
 
-## 📂 Estructura de Archivos
+## 📈 Métodos de Análisis
 
-```
-AluraStore-Analysis/
-├── AluraStoreLatam-6.ipynb        # Notebook principal
-├── README.md                      # Este archivo
-└── data/
-    ├── tienda_1.csv              # Datos de tienda 1 (descargado)
-    ├── tienda_2.csv              # Datos de tienda 2 (descargado)
-    ├── tienda_3.csv              # Datos de tienda 3 (descargado)
-    └── tienda_4.csv              # Datos de tienda 4 (descargado)
-```
+- **Análisis Descriptivo**: Cálculo de métricas y estadísticas
+- **Análisis Comparativo**: Benchmarking entre tiendas
+- **Normalización de Datos**: Escala 0-100 para comparación de variables con rangos diferentes
+- **Visualización Avanzada**: Gráficos de barras agrupadas y superpuestas
 
-## 🐛 Troubleshooting - Problemas Comunes
+## 📌 Datos Base
 
-### Problema: Error al descargar datos desde GitHub
-**Solución**: Verifica tu conexión a Internet y que las URLs no hayan cambiado
-
-### Problema: Módulos no encontrados (ImportError)
-**Solución**: Instala las dependencias faltantes:
-```bash
-pip install pandas numpy matplotlib seaborn --upgrade
-```
-
-### Problema: El notebook se ejecuta lentamente
-**Solución**: Reduce el tamaño de las visualizaciones o ejecuta en Google Colab que tiene más recursos
-
-### Problema: Datos vacíos o inconsistentes
-**Solución**: Verifica que todas las 4 tiendas se hayan cargado correctamente
-
-## 📚 Conceptos de Python y Data Science Aplicados
-
-Este proyecto enseña y utiliza:
-
-- **Manipulación de datos**: Carga, limpieza y transformación con Pandas
-- **Análisis exploratorio**: EDA (Exploratory Data Analysis)
-- **Estadística descriptiva**: Media, mediana, desviación estándar
-- **Visualización de datos**: Gráficos exploratorios
-- **Consolidación de datos**: Unión de múltiples fuentes
-- **Análisis geográfico**: Trabajo con coordenadas lat/lon
-- **Interpretación de datos**: Extracción de insights
+- **Período**: 2020-2023
+- **Registros por tienda**: ~2,359 transacciones
+- **Categorías**: 8 categorías de productos
+- **Ciudades**: Múltiples ciudades en Colombia (Bogotá, Medellín, Cali, etc.)
 
 ## 🎓 Contexto Educativo
 
-Este proyecto forma parte del **Challenge de Data Science de Alura en Latinoamérica**, diseñado para:
+Este proyecto fue desarrollado como parte de un desafío de análisis de datos, implementando técnicas de:
+- Carga y exploración de datos
+- Limpieza y validación de datos
+- Análisis exploratorio (EDA)
+- Storytelling con datos
+- Toma de decisiones basada en datos
 
-- Desarrollar habilidades de análisis de datos
-- Practicar con datos reales de comercio electrónico
-- Aprender metodologías de Data Science
-- Mejorar la capacidad de comunicar insights
+## 📞 Instrucciones de Uso
 
-## 🔗 Enlaces Útiles
+1. **Abrir el notebook** en Google Colab
+2. **Ejecutar celdas secuencialmente** para reproducir el análisis
+3. **Visualizar gráficos** para comprender patrones
+4. **Revisar conclusiones** en la sección final
 
-- [Repositorio oficial de Alura](https://github.com/alura-es-cursos/challenge1-data-science-latam)
-- [Documentación de Pandas](https://pandas.pydata.org/docs/)
-- [Documentación de Matplotlib](https://matplotlib.org/stable/contents.html)
-- [Documentación de Seaborn](https://seaborn.pydata.org/)
+## 🔧 Personalización
+
+Para adaptarse a otros análisis:
+- Modificar URLs de datos en la sección de importación
+- Ajustar los rangos de normalización según necesidad
+- Agregar nuevas categorías o tiendas
+- Extender el período de análisis
 
 ## 📝 Notas Importantes
 
-- El análisis utiliza datos de ejemplo educativo
-- No es necesario descargar archivos CSV manualmente
-- El proyecto es completamente reproducible ejecutando el notebook
-- Los resultados pueden variar según actualizaciones de los datos
+- Los costos de envío son **pagados por clientes**, no por tiendas
+- Análisis **normalizado a escala 0-100** para comparabilidad
+- Recomendación basada en **análisis cuantitativo integral**
+- Considera factores financieros, operacionales y de satisfacción
 
-## 🤝 Contribuciones y Mejoras
+## ✅ Conclusión
 
-Este proyecto puede expandirse con:
-- Análisis predictivo
-- Modelos de machine learning
-- Dashboards interactivos
-- APIs para consultas dinámicas
-- Análisis de series temporales
-
-## 📄 Licencia
-
-Este proyecto es educativo y forma parte del programa de formación de Alura.
+El análisis integral de AluraStore Latam proporciona evidencia clara de que **Tienda 4 es la candidata ideal para vender**, permitiendo al Sr. Juan optimizar su portafolio concentrándose en operaciones más rentables y eficientes con modelos comerciales más exitosos.
 
 ---
 
-**Creado con ❤️ para estudiantes de Data Science**
-
-*Última actualización: Noviembre 2025*
+**Autor**: Estudiante de Data Science  
+**Fecha**: Noviembre 2025  
+**Desafío**: Challenge Alura Store - Data Science Latam
