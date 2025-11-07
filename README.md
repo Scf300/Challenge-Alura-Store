@@ -161,6 +161,6 @@ El análisis integral de AluraStore Latam proporciona evidencia clara de que **T
 
 ---
 
-**Autor**: Estudiante de Data Science  
+**Autor**: Sebastián Castro - Estudiante de Data Science  
 **Fecha**: Noviembre 2025  
 **Desafío**: Challenge Alura Store - Data Science Latam
